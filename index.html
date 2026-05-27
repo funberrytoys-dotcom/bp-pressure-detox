@@ -1,206 +1,176 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<meta name="theme-color" content="#6B2D3A">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>Сердце &amp; Сон — Dr. Gromyko</title>
-<link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="assets/icons/icon-192.png">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Сердце & Сон — Dr. Gromyko</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="assets/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <!-- App Container -->
+  <div id="app">
 
-<!-- SPLASH -->
-<div id="splash">
-  <div class="splash-inner">
-    <div class="logo-mark">♥</div>
-    <h1>Сердце &amp; Сон</h1>
-    <p class="byline">Dr. Tatyana Gromyko</p>
-    <div class="splash-choices">
-      <button class="choice-card" id="btn-cardio">
-        <span class="choice-icon">💗</span>
-        <span class="choice-title">Дневник давления</span>
-        <span class="choice-desc">Отслеживай АД, анализируй тренды, получай рекомендации</span>
-      </button>
-      <button class="choice-card" id="btn-sleep">
-        <span class="choice-icon">🌙</span>
-        <span class="choice-title">Цифровой детокс</span>
-        <span class="choice-desc">Отключи экран, включи белый шум, готовься ко сну</span>
-      </button>
-    </div>
+    <!-- Splash Screen -->
+    <section id="splash" class="screen splash-screen">
+      <div class="splash-bg">
+        <img src="assets/images/splash_512.png" alt="" class="splash-art">
+        <div class="splash-overlay"></div>
+      </div>
+      <div class="splash-content">
+        <img src="assets/icons/icon-192.png" alt="Сердце & Сон" class="splash-logo">
+        <h1 class="splash-title">Сердце <span class="amp">&</span> Сон</h1>
+        <p class="splash-subtitle">Dr. Tatyana Gromyko</p>
+        <p class="splash-tagline">Кардиология & Сомнология</p>
+        <button class="btn-enter" onclick="goHome()">
+          <span>Начать заботу о себе</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- Home Screen -->
+    <section id="home" class="screen home-screen hidden">
+      <div class="home-header">
+        <div class="home-brand">
+          <img src="assets/icons/icon-192.png" alt="" class="home-icon">
+          <div>
+            <h1 class="home-title">Сердце <span class="amp">&</span> Сон</h1>
+            <p class="home-doctor">Dr. Tatyana Gromyko</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="home-cards">
+        <div class="glass-card card-heart" onclick="showModule('bp')">
+          <div class="card-bg" style="background-image: url('assets/images/splash_512.png')"></div>
+          <div class="card-content">
+            <div class="card-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+            </div>
+            <h2>Дневник давления</h2>
+            <p>Отслеживай АД, анализируй тренды, получай рекомендации</p>
+            <div class="card-arrow">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card card-sleep" onclick="showModule('detox')">
+          <div class="card-bg" style="background-image: url('assets/images/sleep_module.png')"></div>
+          <div class="card-content">
+            <div class="card-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+              </svg>
+            </div>
+            <h2>Цифровой детокс</h2>
+            <p>Отключи экран, включи белый шум, готовься ко сну</p>
+            <div class="card-arrow">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="home-footer">
+        <p>Персональное медицинское приложение</p>
+      </div>
+    </section>
+
+    <!-- BP Module -->
+    <section id="bp" class="screen module-screen hidden">
+      <div class="module-header">
+        <button class="btn-back" onclick="goHome()">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+        </button>
+        <h2>Дневник давления</h2>
+      </div>
+      <div class="module-body">
+        <div class="glass-panel">
+          <label>Систолическое (верхнее)</label>
+          <input type="number" id="sys" value="120" class="glass-input">
+          <label>Диастолическое (нижнее)</label>
+          <input type="number" id="dia" value="80" class="glass-input">
+          <label>Пульс</label>
+          <input type="number" id="pulse" value="72" class="glass-input">
+          <button class="btn-primary" onclick="saveBP()">Сохранить запись</button>
+        </div>
+        <div class="glass-panel chart-panel">
+          <h3>Динамика</h3>
+          <canvas id="bpChart" width="350" height="180"></canvas>
+        </div>
+        <div id="bpAdvice" class="glass-panel advice-panel hidden">
+          <h3>AI-анализ</h3>
+          <p id="bpAdviceText"></p>
+          <button class="btn-cta" onclick="openFunnel('bp')">📅 Записаться к кардиологу</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Detox Module -->
+    <section id="detox" class="screen module-screen hidden">
+      <div class="module-header">
+        <button class="btn-back" onclick="goHome()">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+        </button>
+        <h2>Цифровой детокс</h2>
+      </div>
+      <div class="module-body">
+        <div class="timer-display">
+          <div class="timer-circle">
+            <span id="timerValue">20:00</span>
+            <span class="timer-label">мин до сна</span>
+          </div>
+        </div>
+        <div class="sound-grid">
+          <button class="sound-btn active" data-sound="white" onclick="playSound('white')">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"/></svg>
+            <span>Белый шум</span>
+          </button>
+          <button class="sound-btn" data-sound="pink" onclick="playSound('pink')">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/></svg>
+            <span>Розовый шум</span>
+          </button>
+          <button class="sound-btn" data-sound="brown" onclick="playSound('brown')">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10h20M2 14h20M2 6h20M2 18h20"/></svg>
+            <span>Коричневый</span>
+          </button>
+          <button class="sound-btn" data-sound="rain" onclick="playSound('rain')">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 16.2A4.5 4.5 0 0 0 3.2 14.2C1.4 14.9 0 16.5 0 18.5a4.5 4.5 0 0 0 4.5 4.5h13a4.5 4.5 0 0 0 2.5-8.3z"/><path d="M8 14v4M12 12v6M16 14v4"/></svg>
+            <span>Дождь</span>
+          </button>
+        </div>
+        <div class="glass-panel">
+          <label>Громкость</label>
+          <input type="range" id="volume" min="0" max="100" value="50" class="glass-slider" oninput="setVolume(this.value)">
+        </div>
+        <button class="btn-cta" onclick="openFunnel('detox')">🌙 Записаться к сомнологу</button>
+      </div>
+    </section>
+
   </div>
-</div>
 
-<!-- ========== КАРДИО МОДУЛЬ ========== -->
-<div id="module-cardio" class="module">
-  <header class="module-header">
-    <button class="btn-back" data-back>← Назад</button>
-    <h2>💗 Дневник давления</h2>
-  </header>
-
-  <!-- Ввод -->
-  <section class="card">
-    <h3>Новая запись</h3>
-    <div class="form-row">
-      <label>Систола (верхнее)</label>
-      <input type="tel" id="sys" placeholder="120" maxlength="3" inputmode="numeric">
-    </div>
-    <div class="form-row">
-      <label>Диастола (нижнее)</label>
-      <input type="tel" id="dia" placeholder="80" maxlength="3" inputmode="numeric">
-    </div>
-    <div class="form-row">
-      <label>Пульс</label>
-      <input type="tel" id="pulse" placeholder="72" maxlength="3" inputmode="numeric">
-    </div>
-    <div class="form-row">
-      <label>Как себя чувствуете?</label>
-      <div class="mood-choices">
-        <button class="mood-btn" data-mood="great">😊</button>
-        <button class="mood-btn" data-mood="ok">😐</button>
-        <button class="mood-btn" data-mood="bad">😰</button>
-        <button class="mood-btn" data-mood="dizzy">😵</button>
-      </div>
-    </div>
-    <div class="form-row">
-      <label>Примечание</label>
-      <textarea id="note" rows="2" placeholder="Стресс, кофе, физнагрузка..."></textarea>
-    </div>
-    <button class="btn-primary" id="btn-save-bp">💾 Сохранить запись</button>
-  </section>
-
-  <!-- Статус последней записи -->
-  <section class="card" id="last-bp-card">
-    <h3>Последняя запись</h3>
-    <div id="last-bp-display">Записей пока нет</div>
-  </section>
-
-  <!-- График -->
-  <section class="card">
-    <h3>📊 Динамика (7 дней)</h3>
-    <canvas id="bp-chart" width="340" height="180"></canvas>
-  </section>
-
-  <!-- AI-анализ -->
-  <section class="card ai-card" id="ai-analysis-card">
-    <h3>🤖 AI-анализ</h3>
-    <div id="ai-analysis-text">Добавьте минимум 3 записи для персонального анализа</div>
-    <div class="ai-cta hidden" id="ai-cta">
-      <p>Тренды указывают на риск. AI-кардиолог рекомендует:</p>
-      <a href="https://t.me/Tatiana_Gromyko" class="btn-cta" target="_blank">📩 Отправить дневник кардиологу</a>
-      <a href="#" class="btn-cta btn-secondary" id="btn-course-cardio">📚 Курс «Здоровое сердце»</a>
-    </div>
-  </section>
-
-  <!-- История -->
-  <section class="card">
-    <h3>📝 История</h3>
-    <div id="bp-history"></div>
-  </section>
-
-  <button class="btn-back" data-back>← В главное меню</button>
-</div>
-
-<!-- ========== СОН МОДУЛЬ ========== -->
-<div id="module-sleep" class="module">
-  <header class="module-header">
-    <button class="btn-back" data-back>← Назад</button>
-    <h2>🌙 Цифровой детокс</h2>
-  </header>
-
-  <!-- Пре-скрин таймер -->
-  <section class="card" id="detox-timer-card">
-    <h3>За час до сна:</h3>
-    <div class="detox-status">
-      <div id="detox-timer">60<span class="unit">мин</span></div>
-      <p id="detox-label">Отключи экран и начни ритуал</p>
-    </div>
-    <div class="detox-checklist">
-      <label class="check-item"><input type="checkbox" id="chk-phone"> 📱 Телефон — в другую комнату</label>
-      <label class="check-item"><input type="checkbox" id="chk-lights"> 💡 Тёплый свет / без синего</label>
-      <label class="check-item"><input type="checkbox" id="chk-bath"> 🛁 Тёплый душ или ванна</label>
-      <label class="check-item"><input type="checkbox" id="chk-tea"> 🍰 Травяной чай (валерьяна, мелисса)</label>
-    </div>
-    <button class="btn-primary" id="btn-start-detox">🚀 Начать детокс</button>
-  </section>
-
-  <!-- Звуковая среда -->
-  <section class="card" id="soundscape-card">
-    <h3>🔊 Звуковая среда</h3>
-    <div class="sound-grid">
-      <button class="sound-btn active" data-sound="white" data-label="Белый шум">🌫️</button>
-      <button class="sound-btn" data-sound="pink" data-label="Розовый шум">🌸</button>
-      <button class="sound-btn" data-sound="rain" data-label="Дождь">🌧️</button>
-      <button class="sound-btn" data-sound="forest" data-label="Лес">🌲</button>
-      <button class="sound-btn" data-sound="ocean" data-label="Океан">🌊</button>
-      <button class="sound-btn" data-sound="fan" data-label="Вентилятор">🌀</button>
-    </div>
-    <div class="sound-label" id="sound-label">Белый шум</div>
-    <div class="volume-row">
-      <span>🔇</span>
-      <input type="range" id="vol" min="0" max="1" step="0.05" value="0.5">
-      <span>🔊</span>
-    </div>
-    <div class="timer-row">
-      <label>Таймер выключения</label>
-      <select id="sleep-timer">
-        <option value="0">Без таймера</option>
-        <option value="15">15 мин</option>
-        <option value="30" selected>30 мин</option>
-        <option value="45">45 мин</option>
-        <option value="60">60 мин</option>
-      </select>
-    </div>
-    <button class="btn-primary" id="btn-play">▶️ Включить звук</button>
-  </section>
-
-  <!-- Трекер сна -->
-  <section class="card">
-    <h3>📋 Утренняя оценка сна</h3>
-    <div class="sleep-rate">
-      <p>Как спалось?</p>
-      <div class="stars">
-        <button class="star" data-star="1">⭐</button>
-        <button class="star" data-star="2">⭐</button>
-        <button class="star" data-star="3">⭐</button>
-        <button class="star" data-star="4">⭐</button>
-        <button class="star" data-star="5">⭐</button>
-      </div>
-    </div>
-    <div class="form-row">
-      <label>Часов сна</label>
-      <input type="tel" id="sleep-hours" placeholder="7.5" inputmode="decimal">
-    </div>
-    <div class="form-row">
-      <label>Будильник</label>
-      <input type="time" id="wake-time" value="07:00">
-    </div>
-    <button class="btn-primary" id="btn-save-sleep">💾 Сохранить</button>
-  </section>
-
-  <!-- AI-анализ сна -->
-  <section class="card ai-card" id="sleep-ai-card">
-    <h3>🤖 AI-анализ сна</h3>
-    <div id="sleep-ai-text">Нужно минимум 3 записи для анализа</div>
-    <div class="ai-cta hidden" id="sleep-cta">
-      <p>Сон качественно ухудшился. AI-сомнолог рекомендует:</p>
-      <a href="https://t.me/Tatiana_Gromyko" class="btn-cta" target="_blank">📩 Консультация сомнолога</a>
-      <a href="#" class="btn-cta btn-secondary" id="btn-course-sleep">📚 Курс «Глубокий сон»</a>
-    </div>
-  </section>
-
-  <button class="btn-back" data-back>← В главное меню</button>
-</div>
-
-<!-- Toast -->
-<div id="toast"></div>
-
-<script src="js/storage.js"></script>
-<script src="js/chart.js"></script>
-<script src="js/noise.js"></script>
-<script src="js/app.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/chart.js"></script>
+  <script src="js/noise.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
